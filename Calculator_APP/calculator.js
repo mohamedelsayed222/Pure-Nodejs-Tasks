@@ -1,10 +1,10 @@
 const http=require("http")
+const url=require('url')
 const server =http.createServer((req,res)=>{
-    console.log(typeof req.url);
-    let url=req.url
-    let operation=url.slice(1,url.indexOf('?'))  //http://localhost:3000/add?a=3&b=6
-    let a=Number(url[url.lastIndexOf('a')+2]);
-    let b=Number(url[url.lastIndexOf('b')+2]);
+    let ur=req.url
+    let operation=ur.slice(1,ur.indexOf('?'))  //http://localhost:3000/add?a=3&b=6
+    let a=Number(ur[ur.lastIndexOf('a')+2]);
+    let b=Number(ur[ur.lastIndexOf('b')+2]);
     switch(operation){
         case 'add':
             res.writeHead(200,{"content-type":'text/html'})
