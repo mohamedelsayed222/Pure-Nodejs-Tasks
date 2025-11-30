@@ -11,6 +11,12 @@ const server = http.createServer((req, res) => {
     const numA = Number(a);
     const numB = Number(b);
 
+    // Validate numbers
+    if (isNaN(numA) || isNaN(numB)) {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        return res.end("Both a and b must be valid numbers.");
+    }
+
     let result;
 
     switch (operation) {
